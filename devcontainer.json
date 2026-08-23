@@ -1,0 +1,18 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "AI Coding Stack",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/nvidia-cuda:1": {
+      "installCudnn": true
+    }
+  },
+  "postCreateCommand": "curl -fsSL https://ollama.com/install.sh | sh && ollama serve &",
+  "forwardPorts": [11434, 3000],
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "ms-vscode.vscode-json"]
+    }
+  }
+}
